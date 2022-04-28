@@ -1,0 +1,306 @@
+ Web development: Getting Started
+The first step is to create the files and folders where the website will be built in. I created a main folder called “leannejade.co.uk” and created a file called “index.html”. This is where the landing page will be. If the file had a different name to “index.html”, it would not be recognised by the server as the main page, and there would be an error. I also created a file called css, which I will be using later. I opened the html file in Notepad ++ and started building the first page of the website.
+
+The making of index.html
+To start the webpage, I need to set the doctype declaration. When the page is open, this line of code tells the browser what language the code is written in. This then allows the browser to translate the code into readable text. All HTML webpages need the doctype declaration. The second line of code defines the language or country combination that the text is written in.
+
+<!doctype html>
+<html lang="en-gb">
+
+The next part of the code is the head tag. This tag holds all the metadata, or information of the contents of the webpage.
+
+<head>
+   <title> Jade Walker</title>
+   <meta charset="utf-8">
+   <meta> name="viewport" content="width=device-width, initial-scale=1">
+   <link> rel="stylesheet" href="css/custom.css">
+<head>
+
+The first line of the head tag is the page title. This is the text shown on the tab bar at the top of the browser. This identifies what the site is, so if the user change tabs, they can get to the right one quickly. I chose to create a < div > tag, so that I could use the class attribute to give the header and the header text different styles. The h1 tag will hold the header text.
+
+<div class="header">
+   <h1> Jade Walker</h1>
+</div>
+
+How it is time to see how the website looks.
+TabWebsite preview
+The page title shows on the tab bar. This is exactly what I wanted. Other than adding a logo next to my name, no further action is needed on that element of the site. However, when looking at the webpage, I can see that the text sits to the left of the page and is quite small. As well as the header not being correct, I am also missing the band of colour at the top. This is because I have yet to create a CSS file and style them both.Making of custom.cssIn my CSS folder I made previously, I have created a custom.css file. This is the file we linked back in the <head> tag. CCS means “Cascading Style Sheet” and means that any styles in the file are used across the site. For example, if I have a paragraph (<p>) with a font of 12px in the style sheet, every piece of text inside a <p> tag across the site will have 12px font.
+
+Firstly, I wanted the h1 tag, which holds my text, to be centred. ‘text-align’ is a CSS style which moves any text with the style applied to any position on the page. ‘text-align: center’ means that the text will be in the centre of the page.
+
+h1 {
+    text-align : center;
+}
+
+Now, lets go back to view the page to see what happens.
+
+Website preview
+Although I can see that the text is in the middle of the page, it is quite difficult to read. The default is 2em, but I would like it to be 4em. Em is a unit of text size. To change the text size, I need to go into the h1 tag again in the style sheet and add another attribute. ‘font-size’ is the size of the font and will recognise many different units of length including px, em and percentages.
+
+h1 {
+    text-align : center;
+   font-size : 4em;
+}
+Website preview
+Now that I had gotten the basics out of the way, I decided to go ahead and start making the website look more appealing.
+
+Web development: The Header
+I wanted to make the header look fancy, but not too complicated. With the plan I had, I decided I wanted the header text to be to one side, with some text underneath it. Having a <br> tag between my first and last name seperates the two on different lines, and makes it look more professional. I then added text underneath my name. I had to create an ID called "undertext" in order to change the font size. The ID gives a specific item a different style from the rest of the same items in the same tag. This means no other text in the <h1> tag will be affected.
+
+HTML
+
+
+<div class="header">
+   <h1> Jade
+   <br> Walker</h1>
+   <h1> id="undertext"> Photography | Technology</h1>
+</div>
+
+In the CSS file and in the h1 tag, I had to make sure everything had been in line, which is why I have various styles like "padding-top" which makes sure that there is enough padding above the text and the top of the page. I wanted the text to have spacing between the letters, so I used "letter-spacing" and set it to 9px. I also set the text colour to #ffffff, which is hex code for the colour white.
+
+In the .header attribute, I have a few styles that should make sure that the header spans the whole page. "width: 100%" is the style that is responsible for this. "position:fixed" is the style that should keep the header at the top of the page and visible even when scrolling. I have decided to have the background set to #000000, which is hex for the colour black. This will mean that the text in the h1 tag will be easy to read.
+
+The undertext ID is in the h1 tag. This means any attributes, such as text size, that are in the h1 tag should be the same for anything with the ID tag unless specifically mentioned. I am needing the text size for the text in the undertext ID to be smaller than the text in the h1 tag, however I want everything else, such as text colour, to stay the same.
+
+CSS
+
+
+h1 {
+   font-size : 4em;
+   color : #ffffff;
+   letter-spacing : 9px;
+   height : 1em;
+   text-align : left;
+   margin-left : 50px;
+   padding-top : -50px;
+   padding-bottom : 20px;
+}
+
+.header {
+   padding : 15px;
+   background : #000000;
+   top : 0;
+   margin : -0.5em;
+   width : 100%;
+   position : fixed;
+}
+
+#undertext {
+   font-size : 0.8em;
+}
+
+Now the page should have a fixed header with my name and and text underneath it.
+
+This is the website header.
+Web development: The Big Picture
+To create a big picture at the top of the site, I need to include an img tag, along with some attributes.
+HTML
+
+
+<img class="main" src=img/main.jpg alt="main">
+
+The img tag holds a class, which will allow me to style the image and style any other images within the class. src allows me to link the image that I would like to be viewed on the website. The alt identifies the picture when accessability tools are used on the website, such as screen readers. With the CSS file, I will be creating styles for the img tag and the .main class. For the image tag, I will need to make sure that it spans most of the page, with a small gap between the edge of the image and the edge of the site. This is what margin-top and margin-bottom is.
+
+The .main class makes sure that specific picture fits with the rest of the page.
+
+CSS
+
+
+img {
+   max-width : 200%;
+   max-height : 200%;
+   display : block;
+   margin : 0 auto;
+   margin-bottom : 2em;
+   margin-top : 2em;
+}
+
+.main {
+   max-width : 90%;
+   max-height : 30%;
+   display : block;
+   margin : 0 auto;
+   padding : 5em;
+   margin-bottom : 2em;
+   margin-top : 10em;
+}
+
+
+This should now have a photo at the top of the page.
+
+This is the website header.
+Web development: About Me
+The next steps are to create an "About me" box, which should explain how I came to understand everything I learned.
+
+HTML
+
+
+<div class="intro"
+<h2> About Me </h2>
+  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros ligula, accumsan quis nunc vel, convallis mollis purus. Quisque ultrices sagittis mi in scelerisque. Donec feugiat euismod magna quis ullamcorper. Maecenas ultrices nisl non nisl feugiat, non bibendum ex sodales. Nam est lectus, vehicula ut efficitur vel, convallis a turpis. Integer feugiat, odio sit amet dignissim eleifend, urna ligula condimentum dui, at venenatis turpis mauris euismod lacus. In sed euismod purus, sit amet egestas mi. Suspendisse vel egestas nisl. Integer ultricies at orci eget suscipit. Sed ullamcorper urna eget velit euismod, non dapibus lacus feugiat. Mauris sodales nulla sit amet lacus sagittis, eget posuere sapien elementum. Sed faucibus risus hendrerit, condimentum massa ut, euismod quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum porta dui non elit mattis, et lacinia lorem aliquam. Curabitur eu nulla augue. Cras pellentesque volutpat dui elementum ullamcorper. Morbi id felis lorem. Nam ac vulputate massa. Cras ut accumsan ex, non convallis nulla. Curabitur sagittis elementum elit, non facilisis turpis sodales et. Donec placerat, augue sit amet egestas tristique, purus lacus rutrum orci, sed congue ante urna ut sapien. Etiam nec ex nisl. Sed volutpat erat at justo posuere, ut pharetra nulla tempus. In vehicula venenatis mattis. Nunc maximus venenatis suscipit. Nunc nisl quam, tristique sit amet felis ut, gravida semper turpis. Proin a egestas augue. In faucibus feugiat augue a blandit. Nullam eu leo suscipit, feugiat justo aliquam, tincidunt purus. Aenean sed libero sit amet neque scelerisque ullamcorper non eu felis. Suspendisse potenti. Donec tempor interdum hendrerit. Duis a dignissim ipsum, quis fermentum nibh. Maecenas et tellus arcu. Nunc et feugiat nunc, eu accumsan diam.</p>
+</div>
+
+The whole of the "About Me" box will be held by the <div> tag. It will also have a class, which means I can style the <div> box. The <h2> tag will hold the title, and will be styled differently than the rest of the text on the page. The <p> tag, holds the main text.
+
+
+CSS
+
+
+.intro {
+   font-family : Roboto;
+   font-size : 2em;
+   colour : #ffffff;
+   background : #000000;
+   padding : 2em;
+   padding-top : -15em;
+   margin : -1em;
+}
+
+
+Now I should have a section of the website with an "About Me" section.
+
+This is the About Me page.
+Web development: The Three Links
+The next steps are to create an "About me" box, which should explain how I came to understand everything I learned.
+
+HTML
+
+
+<div class ="pictures" id ="pic">
+<a href="photo.html"><img class="main" src ="img/world.jpg" alt ="GCSE Photography 2016-2018"
+></a>
+<div class ="text">
+  GCSE Photography
+  2016-2018
+</div>
+</div> <div class ="pictures" id ="pic">
+<a href="photo.html"><img class="main" src ="img/light.jpg" alt ="BTEC Level 3 Extended Diploma in IT"
+></a>
+<div class ="text">
+  BTEC Level 3
+  Extended Diploma in IT
+</div>
+</div> <div class ="pictures" id ="pic">
+<a href="photo.html"><img class="main" src ="img/world.jpg" alt ="GCSE Photography 2016-2018"
+></a>
+<div class ="text">
+  Professional Apprenticeships
+  Infrustructure Technician
+</div>
+</div>
+
+CSS
+
+
+.main {
+   max-width : 90%;
+   max-height : 30%;
+   display : block;
+   margin : 0 auto;
+   padding : 5em;
+   margin-bottom : 2em;
+   margin-top : 10em;
+}
+
+#undertext {
+   font-size : 0.8em;
+}
+
+.pictures {
+   float : left;
+   width : 30%;
+   align-items : center;
+   text-align : center;
+}
+
+.text {
+   color : #f2f2f2;
+   max-height : 1.3em;
+   display : block;
+   position : relative;
+   top : -5em;
+   font-family : Roboto;
+}
+
+
+The website should now hold the three photos as links to their respective pages.
+
+This is the About Me page.
+Preview of Main Page
+A preview of the main page.
+
+This is a preview of the main page of the website. I'm very happy with the progress I have made so far. The best part of the website is the header, as it's stuck in place, even when the user scrolls down. If I had to improve the website, I would add a picture carousel. It could either have a timer that moves from one photo to another, or two buttons either side in order for the user to change the photo themselves. I would also add a border around the photos, so that the photos are clearer.
+
+The next thing I need to do is create a new page, in order to show how I created this website from start to finish.
+
+Web development: Contents
+In order to create another webpage, I need to create another file. I decided to duplicate the 'index.html' file, and remove anything I didn't need. I kept the text I added in "Getting Started", and "The Header", as I want them to be seen on the new webpage. I named the file 'pa.html', short for Professional Apprenticeships.
+
+This is the contents.
+The next thing I needed to do was to create the contents box. This will allow the user to jump to each header, instead of scrolling through the text. Each title will have a link which will directly jump to the specific header.
+
+
+HTML
+
+
+<div class="intro"id="top">
+   <h3>Contents</h3>
+<nav>
+   <ul>
+      <li><a href="#setup">Link 1</a></li>
+      <br>
+      <li><a href="#setup">Link 2</a></li>
+      <br>
+      <li><a href="#setup">Link 3</a></li>
+      <br>
+      <li><a href="#setup">Link 4</a></li>
+      <br>
+      <li><a href="#setup">Link 5</a></li>
+   </ul>
+</nav>
+
+
+
+CSS
+
+
+h3 {
+   font-family : Roboto;
+   font-size : 0.7em;
+   text-align : center;
+}
+
+.intro {
+   font-family : Roboto;
+   font-size : 2em;
+   color : #ffffff;
+   background : #000000;
+   padding : 2em;
+   padding-top : -15em;
+   margin : -1em;
+}
+
+#top {
+   font-family : Roboto;
+   font-size : 2em;
+   background : #758799;
+   padding : 2em;
+   padding-top : 7em;
+   margin : -1em;
+}
+
+p, li {
+   font-family : Roboto;
+   font-size : 0.7em;
+   margin-left : 2.5em;
+}
+
+ul {
+   margin-right : 3em;
+   list-style : none;
+   text-align : center;
+}
+
+a {
+   color : #ffffff;
+}

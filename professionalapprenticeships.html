@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <title>Jade Walker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/custom.css">
+  <script src="https://use.fontawesome.com/8b059409f7.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <script src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <script>
+
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+
+    </script> <!--For the header-->
+    <div class="header">
+        <h1>
+            Jade<br>
+            Walker
+        </h1>
+        <h1 id="undertext">Technology | Photography</h1>
+    </div>
+    <div class="intro" id="top">
+        <h3>Contents</h3>
+        <nav>
+            <ul>
+                <li><a href="#setup">Setting up a hosting account</a></li>
+                <br>
+                <li><a href="#dns">DNS Propagation</a></li>
+                <br>
+                <li><a href="#audit">Change audit log of website</a></li>
+                <br>
+            </ul>
+        </nav>
+    </div>
+    <div class="intro">
+        <h3 class="h3" id=setup>Setting up a hosting account</h3>
+        <p>
+            To create a hosting account for the website, I used Plesk, which is a hosting control panel. I will need to create a customer account to set up my domain and create a platform for my website. It will also allow me to complete tasks such as setting up FTP access and applying SSLs. I created a new customer account by pressing “Add a customer”.
+            <img src="img/pa/1/1.1.png" width="712" height"100%" alt="Add a Customer">
+            <br>
+            The first set of details are for accessing the customer account in Plesk. The second set of details are for the domain subscription. This sets up a set of properties for the website.
+            <img src="img/pa/1/1.2.png" alt="Customer details">
+            <li>
+                Domain name: - This is where I will input the domain name I will be using for the website: leannejade.co.uk. When loading a website, the users computer will access the server via the IP, not the domain name. As IPs can be difficult to remember, the DNS (Domain Name System) translates the IP into a domain name. An example of this is Google. To access google.com, you can type google.com in the address bar. Alternatively, you could type in 142.250.186.142 or 142.250.186.164.
+            </li>
+            <br>
+            <li>
+                IPv4/IPv6 address: - This is where I allocated an IP address to the domain. I have a choice between a shared or a dedicated IP. A shared IP is where multiple websites and domains are hosted on the same IP, whereas a dedicated IP is where one website, or a singular domain with multiple websites are hosted on an IP of their own.
+            </li>
+            <br>
+            <li>
+                The username and password are for the FTP access. FTP (File Transfer Protocol) is the protocol which deals with file transfer. This can be between two LANs (local area networks) such as computers on the same network, or between a LAN and a WAN (wide area network) such as a computer and a server. This will allow me to transfer the website files from my computer to the web server.
+            </li>
+            <br>
+            <li>
+                The service plan outlines what resources from the server that the website can use. This allows for a range resources including the amount of disk space the website can use the number of mailboxes that can be allocated to the domain and the number of domains, subdomains and aliases that can be allocated. Service plans ensure that each website gets sufficient resources that it requires.
+            </li>
+            <br>
+        </p>
+        <p>
+            <img src="img/pa/1/1.3.png" alt="Customer details">
+            I have now created my customer account.
+        </p>
+        <br>
+        <div class="casestudy">
+            <img src="img/pa/chlogo.png" alt="Cloud Heroes">
+            <p>
+                When I first started at Cloud Heroes, one of the first tasks I learned how to do was to create hosting accounts for customers. Hosting accounts consist of space for website hosting, DNS, and email storage. Setting up hosting accounts are very common when it comes to setting up new customers for one of our resellers, Expert Agent. They are a company that provide a platform for estate agents to run their business on.<br><br>
+                When we first receive the request, we add it to our job system. We then go to the web interface of our web server and create a new hosting account. We first have to set up the user account, adding the details of the new customer Expert Agent has provided us with. We continue with adding the web hosting element to the user account by adding the domain to the hosting account, so that the web space is designated to the domain. Once we have added the domain, we can assign a subscription to it. A subscription tells the server how much space a domain can use on the server and can automatically block usage if over the limit or is taking advantage of the Fair Use Policy.<br><br>
+                No DNS or email set up is required on these, as Expert Agent complete these themselves. We do have to provide log in details and FTP details so that Expert Agent can transfer websites to the new hosting account. Passwords are added securely to our customer portal, where they are viewable for 30 days before they are erased from the server. Once Expert Agent have completed this, we install an SSL to ensure the site stays secure.
+                <br>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="intro2">
+        <h3 class="h3" id=dns>DNS Propagation</h3>
+        <p>
+            My next task is to make sure the domain is on the correct name server. Doing this ensures that I will be able to load the website files, hosted on Plesk, from the domain. This will then allow me to load the website files with the domain. At this moment in time, my domain leannejade.co.uk is currently pointing at my domain registrar, Namecheap’s name servers.
+            <br><br>
+            To change this, I will need to open both the DNS settings on Plesk, and the DNS settings on Namecheap.
+            <br>
+            <br>
+            <img src="img/pa/2/2.1.png" alt="DNS settings">
+            The name server is listed as an NS record in the DNS settings. This is the only record I need to copy onto the DNS settings on the domain registrar.
+            <br>
+            <br>
+            <img src="img/pa/2/2.2.png" alt="NS Records">
+            <li>
+                The name server is listed as an NS record in the DNS settings. The host will be an @ as the @ symbol represents the current domain name. Alternatively, I could add the domain name as the host (leannejade.co.uk).
+            </li>
+            <li>
+                The value is set to the name of the name server. The name server will also have a full stop at the end. If a full stop is not added to the end of the value, the record will automatically add the domain name afterwards (for example pl-ns2.jpcinet.co.uk.leannejade.co.uk). As it would no longer be pointing to the correct name servers, there would be an error when trying to load the website.
+            </li>
+            <li>
+                TTL (Time To Live) is how much time a data packet will “live” within the network before it is made redundant. This can be between 600 seconds (10 minutes) and 86400 seconds (24 hours). Automatic TTL will set the data packet lifespan to the default set by the domain registrar. Namecheap’s default is 1800 seconds (30 minutes).
+            </li>
+        </p>
+        <p>
+            Now that I have set up the account and changed the name servers, I will need to wait for the DNS to propagate. In the meantime, I will start designing and building the website.
+        </p>
+        <div class="casestudy">
+            <img src="img/pa/chlogo.png" alt="Cloud Heroes">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros ligula, accumsan quis nunc vel, convallis mollis purus. Quisque ultrices sagittis mi in scelerisque. Donec feugiat euismod magna quis ullamcorper. Maecenas ultrices nisl non nisl feugiat, non bibendum ex sodales. Nam est lectus, vehicula ut efficitur vel, convallis a turpis. Integer feugiat, odio sit amet dignissim eleifend, urna ligula condimentum dui, at venenatis turpis mauris euismod lacus. In sed euismod purus, sit amet egestas mi. Suspendisse vel egestas nisl. Integer ultricies at orci eget suscipit. Sed ullamcorper urna eget velit euismod, non dapibus lacus feugiat. Mauris sodales nulla sit amet lacus sagittis, eget posuere sapien elementum. Sed faucibus risus hendrerit, condimentum massa ut, euismod quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum porta dui non elit mattis, et lacinia lorem aliquam. Curabitur eu nulla augue. Cras pellentesque volutpat dui elementum ullamcorper. Morbi id felis lorem. Nam ac vulputate massa. Cras ut accumsan ex, non convallis nulla. Curabitur sagittis elementum elit, non facilisis turpis sodales et. Donec placerat, augue sit amet egestas tristique, purus lacus rutrum orci, sed congue ante urna ut sapien. Etiam nec ex nisl. Sed volutpat erat at justo posuere, ut pharetra nulla tempus. In vehicula venenatis mattis. Nunc maximus venenatis suscipit. Nunc nisl quam, tristique sit amet felis ut, gravida semper turpis. Proin a egestas augue. In faucibus feugiat augue a blandit. Nullam eu leo suscipit, feugiat justo aliquam, tincidunt purus. Aenean sed libero sit amet neque scelerisque ullamcorper non eu felis. Suspendisse potenti. Donec tempor interdum hendrerit. Duis a dignissim ipsum, quis fermentum nibh. Maecenas et tellus arcu. Nunc et feugiat nunc, eu accumsan diam.<br>
+            </p>
+        </div>
+</div>
+
+        <div class="intro">
+            <h3 class="h3" id=audit>Change audit log of website</h3>
+            <p>
+                I decided to use GitHub to track changes I made to the website. GitHub is a place where developers can use open-source code, making and tracking changes to both already created code, or new code.  Github will allow me back track at any time, if changes I made were not correct. It will also help me understand other tools that I will need to use along side GitHub. Plesk has the ability to integrate GitHub, so that any changes I make on the website will be shown on GitHub and the website. When coding, I use Visual Studios, that has GitHub built in. Once I have edited the code, I can commit changes, which means the changes have been logged. Once the changes have been logged, I can push any changes to Plesk, which then makes these changes live.
+
+                Previously, I added any changes I made here, along with how I made those changes. Any changes to this portfolio will now be at the link <a href="https://github.com/leannejwalker/profapp/commits?author=leannejwalker">here</a>.
+            </p>
+            <div class="casestudy">
+                <img src="img/pa/chlogo.png" alt="Cloud Heroes">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros ligula, accumsan quis nunc vel, convallis mollis purus. Quisque ultrices sagittis mi in scelerisque. Donec feugiat euismod magna quis ullamcorper. Maecenas ultrices nisl non nisl feugiat, non bibendum ex sodales. Nam est lectus, vehicula ut efficitur vel, convallis a turpis. Integer feugiat, odio sit amet dignissim eleifend, urna ligula condimentum dui, at venenatis turpis mauris euismod lacus. In sed euismod purus, sit amet egestas mi. Suspendisse vel egestas nisl. Integer ultricies at orci eget suscipit. Sed ullamcorper urna eget velit euismod, non dapibus lacus feugiat. Mauris sodales nulla sit amet lacus sagittis, eget posuere sapien elementum. Sed faucibus risus hendrerit, condimentum massa ut, euismod quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum porta dui non elit mattis, et lacinia lorem aliquam. Curabitur eu nulla augue. Cras pellentesque volutpat dui elementum ullamcorper. Morbi id felis lorem. Nam ac vulputate massa. Cras ut accumsan ex, non convallis nulla. Curabitur sagittis elementum elit, non facilisis turpis sodales et. Donec placerat, augue sit amet egestas tristique, purus lacus rutrum orci, sed congue ante urna ut sapien. Etiam nec ex nisl. Sed volutpat erat at justo posuere, ut pharetra nulla tempus. In vehicula venenatis mattis. Nunc maximus venenatis suscipit. Nunc nisl quam, tristique sit amet felis ut, gravida semper turpis. Proin a egestas augue. In faucibus feugiat augue a blandit. Nullam eu leo suscipit, feugiat justo aliquam, tincidunt purus. Aenean sed libero sit amet neque scelerisque ullamcorper non eu felis. Suspendisse potenti. Donec tempor interdum hendrerit. Duis a dignissim ipsum, quis fermentum nibh. Maecenas et tellus arcu. Nunc et feugiat nunc, eu accumsan diam.<br>
+                </p>
+            </div>
+        </div>
+
+</body>
+</html>
